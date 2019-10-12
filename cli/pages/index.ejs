@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lingo4G tools REST API</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 60rem;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      dt {
+        float: left;
+        clear: both;
+        width: 4em;
+        font-weight: bold;
+        text-align: right;
+      }
+      dd {
+        margin-left: 5em;
+        margin-bottom: 1em;
+      }
+      dl.wide > dt {
+        width: 12rem;
+      }
+      dl.wide > dd {
+        margin-left: 13em;
+      }
+      section {
+        margin-bottom: 2rem;
+      }
+      section.endpoint {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+      }
+      a.example {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+      ul.examples li {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <h1>Lingo4G Tools REST API</h1>
+
+      <p>
+        This is the REST API for a number of additional Lingo4G-based tools. Please see below for a list of
+        available tools and the required parameters.
+      </p>
+    </section>
+
+    <section>
+      <h2>Overview</h2>
+
+      <p>
+        You can call the tools by making HTTP GET requests to the endpoints defined below. Each endpoint supports
+        the following common parameters:
+      </p>
+
+      <dl>
+        <dt>format</dt>
+        <dd>
+          Determines the format of the response:
+
+          <dl>
+            <dt>csv</dt>
+            <dd>
+              (default) Tab-separated CSV format. When copying and pasting the response from your browser to Excel,
+              use rich text formatting stripping tool, such as <a href="http://stevemiller.net/puretext/" target="_blank">PureText</a>.
+              This way, all tab-separated entries should end up in separate cells.
+            </dd>
+
+            <dt>json</dt>
+            <dd>
+              JSON format. If viewed in the browser, a
+              <a href="https://www.google.pl/search?q=json+formatter+extension" target="_blank">JSON formatter extension</a>
+              might help to browse the result.
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </section>
+
+    <%
+      endpoints.forEach(function (endpoint) {
+    %>
+      <section class="endpoint">
+        <h2>/<%= endpoint.endpoint %></h2>
+        <p>
+          <%- endpoint.description %>
+        </p>
+
+        <section>
+          <h3>Parameters</h3>
+
+          <dl class="wide">
+            <%
+              Object.keys(endpoint.params).forEach(function (p) {
+            %>
+                <dt><%= p %></dt>
+                <dd>
+                  <%- endpoint.params[p].description %>
+                </dd>
+            <%
+              });
+            %>
+          </dl>
+        </section>
+
+        <section>
+          <h3>Examples</h3>
+
+          <ul class="examples">
+            <%
+            endpoint.examples.forEach(function (e) {
+            %>
+             <li>
+               <a class="example" href="<%= e.urlSuffix %>" target="_blank"><%= decodeURIComponent(e.urlSuffix) %></a>
+               <%= e.description %>
+             </li>
+            <%
+            });
+            %>
+          </ul>
+        </section>
+      </section>
+    <%
+      });
+    %>
+  </body>
+</html>

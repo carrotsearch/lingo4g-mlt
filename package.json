@@ -1,0 +1,19 @@
+{
+  "name": "lingo4g-mlt",
+  "version": "1.1.0-SNAPSHOT",
+  "description": "Experimental implementation of kNN document search based on Lingo4G.",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "columnify": "^1.5.4",
+    "commander": "^2.9.0",
+    "connect": "^3.5.0",
+    "ejs": "^2.5.2",
+    "lodash": "^4.16.4",
+    "progress": "^1.1.8",
+    "progress-stream": "^1.2.0",
+    "superagent": "*"
+  }
+}

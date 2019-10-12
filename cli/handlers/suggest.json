@@ -1,0 +1,28 @@
+{
+  "suggestions": {
+    "limit": 30,
+    "field": "category",
+    "selectByCount": false
+  },
+  "mlt": {
+    "expansion": {
+      "type": "none"
+    },
+    "criteria": {
+      "labels": {
+        "selection": "flat",
+        "weighting": "none",
+        "overrides": {
+          "labels": {
+            "frequencies": {
+              "maxLabelsPerDocument": 1000
+            }
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "fields": []
+  }
+}

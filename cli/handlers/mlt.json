@@ -1,0 +1,26 @@
+{
+  "mlt": {
+    "expansion": {
+      "type": "none"
+    },
+    "criteria": {
+      "labels": {
+        "overrides": {
+          "labels": {
+            "frequencies": {
+              "maxLabelsPerDocument": 1000
+            }
+          }
+        }
+      }
+    },
+    "result": {
+      "fields": [
+        { "name": "id" },
+        { "name": "title" }
+      ],
+      "mltLabels": false,
+      "docLabels": false
+    }
+  }
+}
